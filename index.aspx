@@ -274,7 +274,7 @@
                      <div class="col-lg-12 text center">
                     <div class="service-box" align="center" >
                        <a href="#div3" data-toggle="collapse" ><i class="fa fa-4x fa-key wow bounceIn text-primary" data-wow-delay=".1s"></i></a>
-                        <h3 style="color:white">Admin/Doctor Login</h3>
+                        <h3 style="color:white">Admin / Doctor Login</h3>
                     </div>
                 </div>
                     <hr class="primary">
