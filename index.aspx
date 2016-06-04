@@ -291,19 +291,7 @@
                 
             </table>
             <tr>
-                         <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div style="border-style:solid; border-color:aquamarine; height: 161px;" class="text-center" >
-
-                    <h2 class="auto-style5">
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="auto-style4"> Partners&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; About Us&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Stay In Touch&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; Dieseases And Conditions</span></div>
-                      </h2>
-                </div>
-            </div>
-        </div>  </tr>
+                         </tr>
         </section> 
             <section id="team" style="background-color:#ee9d4d; height:700px ">
         <div class="container">
