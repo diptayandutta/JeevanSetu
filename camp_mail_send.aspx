@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Donator_registered.aspx.cs" Inherits="Donator_registered" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="camp_mail_send.aspx.cs" Inherits="camp_mail_send" %>
 
 <!DOCTYPE html>
 
@@ -10,7 +10,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Sending Mail</title>
+  <title>
+       JEEVAN SETU</title>
+     <link rel="shortcut icon" href="~/img/logo.png" type="image/png">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="css/bootstrap1.min.css" type="text/css">
@@ -38,11 +40,18 @@
      <body>
         <div class="header-content"  >
             <div class="header-content-inner">
-                <br /><br />
-             <center>  <p class="section-heading">YOUR ARE REGISTRED SUCCESSFULLY.PLEASE CHECK YOUR E-MAIL</p></center>
-                
-                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/blood_bank.aspx">Back To Home</asp:HyperLink>
+                <br /><br /><br /><br />
+                  <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    
+                    <h2 class="service-box">MAIL SEND SUCCESSFULLY.</h2>
+                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                </div>
+            
+                  </div></div>  
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Admin_home.aspx">Back to Home</asp:HyperLink>
+            
                     </div>
         </div>
     </body>

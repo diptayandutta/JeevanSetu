@@ -56,18 +56,22 @@
     
         <div class="container">
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Admin_home.aspx">Back to Home</asp:HyperLink>
-            <div class="row">  <div class="col-lg-12 text-center"><br /><br />
+            <div class="row">  
+                <div class="col-lg-12 text-center"><br /><br />
            <h2 class="section-heading" style="color: #FF0000" >ALL ENQUIRY</h2>
                 <hr class="primary">
                 </div>
-                <asp:GridView ID="GridView1" runat="server" align="center" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource1" Height="164px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="614px" BorderColor="#FFD5D5" BorderStyle="None">
+                <asp:GridView ID="GridView1" runat="server" align="center" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource1" Height="61px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="614px" BorderColor="#FFF9F9" BorderStyle="None">
                     <Columns>
                         <asp:BoundField DataField="Id" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
                         <asp:BoundField DataField="name" HeaderText="NAME" SortExpression="name" />
                         <asp:BoundField DataField="gender" HeaderText="GENDER" SortExpression="gender" />
                         <asp:BoundField DataField="email" HeaderText="EMAIL" SortExpression="email" />
-                        <asp:ButtonField ButtonType="Button" CommandName="Select" ControlStyle-CssClass="btn btn-primary"  HeaderText="SELECT" ShowHeader="True" Text="REPLY" />
+                        <asp:ButtonField ButtonType="Button" CommandName="Select" ControlStyle-CssClass="btn btn-primary"  HeaderText="SELECT" ShowHeader="True" Text="REPLY" >
+<ControlStyle CssClass="btn btn-primary"></ControlStyle>
+                        </asp:ButtonField>
                     </Columns>
+                    <HeaderStyle BackColor="#FF8080" />
                 </asp:GridView>
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Id], [name], [gender], [email] FROM [enquiry]"></asp:SqlDataSource>
                 <br />
@@ -86,7 +90,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <center> <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="SEND MAIL" CssClass="btn btn-primary" />
            </center>     <br />
-        </div>
+        </div></div>
     
 		
 

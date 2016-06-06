@@ -41,6 +41,8 @@
                 <br /><br /><br /><br /><br /><br />
              <center>  <p class="btn btn-primary btn-xl page-scroll">E-mail has been sent successfully</p></center>
                 <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                    <br />
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Admin_home.aspx">Back to Home</asp:HyperLink>
                     </div>
         </div>
     </body>

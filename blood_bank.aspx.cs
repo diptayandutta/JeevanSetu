@@ -17,7 +17,7 @@ public partial class blood_bank : System.Web.UI.Page
         bool r = hospital.SaveData("insert into camp_request values('" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text + "','" + TextBox4.Text + "','" + TextBox5.Text + "','" + TextBox6.Text + "','" + TextBox7.Text + "','" + TextBox10.Text + "','" + TextBox11.Text + "','" + TextBox8.Text + "','" + TextBox9.Text + "')");
         if (r)
         {
-            Response.Write("<script>confirm('YOU REQUEST HAS BEEN SUCCESSFULLY REGISTERED')</script>");
+            Response.Write("<script>confirm('YOUR REQUEST HAS BEEN SUCCESSFULLY REGISTERED')</script>");
         }
         else
         {

@@ -42,6 +42,7 @@
              <center>  <p class="section-heading">YOUR REQUEST ARE REGISTRED SUCCESSFULLY.PLEASE CHECK YOUR E-MAIL</p></center>
                 
                 <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/blood_bank.aspx">Back To Home</asp:HyperLink>
                     </div>
         </div>
     </body>

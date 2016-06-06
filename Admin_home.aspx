@@ -28,7 +28,8 @@
      <style type="text/css">
               
          .auto-style1 {
-             width: 100%;
+             width: 99%;
+             height: 506px;
          }
          .auto-style2 {
              width: 227px;
@@ -93,6 +94,26 @@ color: #fff;
 background-color: transparent;
 }
 
+         .auto-style4 {
+             width: 77px;
+         }
+         .auto-style5 {
+             width: 180px;
+             font-weight: 700;
+         }
+         .auto-style7 {
+             width: 197px;
+             font-weight: bold;
+         }
+
+         .auto-style8 {
+             color: #336699;
+             font-weight: bold;
+         }
+         .auto-style9 {
+             color: #336699;
+         }
+
          </style>
     
 </head>
@@ -130,8 +151,8 @@ background-color: transparent;
         <span class="page-scroll"></span></a>
         <ul class="dropdown-menu">
           <li><a href="#stock" class="page-scroll" >BLOOD STOCK</a></li>
-          <li><a href="#" class="page-scroll" >REGISTRED BLOOD DONOR/CAMP</a></li>
-          <li><a href="#" class="page-scroll" >REQUEST FOR BLOOD</a></li>
+          <li><a href="#donor" class="page-scroll" >REGISTRED BLOOD DONOR/CAMP</a></li>
+          <li><a href="#blood_request" class="page-scroll" >REQUEST FOR BLOOD</a></li>
           
         </ul>
       </li>     
@@ -167,8 +188,8 @@ background-color: transparent;
                 <div class="row animate-in" data-anim-type="fade-in-up">
 <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-8 col-lg-offset-2 scroll-me">
                <div class="social">
-<a href="#" class="btn button-custom btn-custom-two" >Doctor Apponiments</a>
-<a href="#" class="btn button-custom btn-custom-two" >Doctor Database</a>
+<a href="#appo_doc" class="btn button-custom btn-custom-two" >Doctor Apponiments</a>
+<a href="#doctor_db" class="btn button-custom btn-custom-two" >Doctor Database</a>
                    <a href="#" class="btn button-custom btn-custom-two" >User Database</a>
                   
 </div>
@@ -273,9 +294,481 @@ background-color: transparent;
         </div>
     </section>
 
-    
+    <section id="donor" style="background-color:floralwhite; height:700px ">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">ALL REGISTRED DONORS</h2>
+                    <hr class="primary">
+                      <br />
+                    <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataKeyNames="email" align="center" DataSourceID="SqlDataSource4" Font-Bold="True" Height="127px" Width="1069px">
+                        <AlternatingRowStyle BackColor="#FF9966" />
+                        <Columns>
+                            <asp:BoundField DataField="Id" HeaderText="DONATOR ID" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
+                            <asp:BoundField DataField="name" HeaderText="DONATOR" SortExpression="name" />
+                            <asp:BoundField DataField="address" HeaderText="ADDRESS" SortExpression="address" />
+                            <asp:BoundField DataField="city" HeaderText="CITY" SortExpression="city" />
+                            <asp:BoundField DataField="contact" HeaderText="CONTACT" SortExpression="contact" />
+                            <asp:BoundField DataField="email" HeaderText="E-MAIL" ReadOnly="True" SortExpression="email" />
+                            <asp:BoundField DataField="blood_group" HeaderText="BLOOD GROUP" SortExpression="blood_group" />
+                            <asp:CommandField ShowDeleteButton="True" />
+                        </Columns>
+                        <HeaderStyle BackColor="Maroon" ForeColor="#FF6666" />
+                    </asp:GridView>
+                    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [Donator] WHERE [email] = @email" InsertCommand="INSERT INTO [Donator] ([name], [address], [city], [contact], [email], [blood_group]) VALUES (@name, @address, @city, @contact, @email, @blood_group)" SelectCommand="SELECT * FROM [Donator]" UpdateCommand="UPDATE [Donator] SET [Id] = @Id, [name] = @name, [address] = @address, [city] = @city, [contact] = @contact, [blood_group] = @blood_group WHERE [email] = @email">
+                        <DeleteParameters>
+                            <asp:Parameter Name="email" Type="String" />
+                        </DeleteParameters>
+                       
+                    </asp:SqlDataSource>
+                </div>
+            </div>
+        </div><br /><br />
+        <div class="container">
+            <div id="Div1" class="row">
+                  <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">BLOOD CAMP REQUEST</h2>
+                    <hr class="primary">
+                     
+                      <asp:GridView ID="GridView4" runat="server" align="center" AutoGenerateColumns="False" DataKeyNames="name,address,date1" DataSourceID="SqlDataSource5" Font-Bold="True" Width="1219px" OnSelectedIndexChanged="GridView4_SelectedIndexChanged">
+                          <Columns>
+                              <asp:BoundField DataField="Id" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
+                              <asp:BoundField DataField="name" HeaderText="ORGANISATION" ReadOnly="True" SortExpression="name" />
+                              <asp:BoundField DataField="address" HeaderText="ADDRESS" ReadOnly="True" SortExpression="address" />
+                              <asp:BoundField DataField="city" HeaderText="CITY" SortExpression="city" />
+                              <asp:BoundField DataField="area" HeaderText="AREA" SortExpression="area" />
+                              <asp:BoundField DataField="phone" HeaderText="CONTACT" SortExpression="phone" />
+                              <asp:BoundField DataField="email" HeaderText="E-MAIL" SortExpression="email" />
+                              <asp:BoundField DataField="person" HeaderText="APPROX NO. OF PERSON" SortExpression="person" />
+                              <asp:BoundField DataField="date1" HeaderText="DATE" ReadOnly="True" SortExpression="date1" />
+                              <asp:BoundField DataField="date2" HeaderText="ALTERNATIVE DATE" SortExpression="date2" />
+                              <asp:BoundField DataField="camp_address" HeaderText="ADDRESS OF CAMP" SortExpression="camp_address" />
+                              <asp:BoundField DataField="require" HeaderText="REQUIREMENTS" SortExpression="require" />
+                              <asp:ButtonField ButtonType="Button" CommandName="Select" HeaderText="SELECT" ShowHeader="True" Text="SELECT" />
+                          </Columns>
+                           <HeaderStyle BackColor="Maroon" ForeColor="#FF6666" />
+                      </asp:GridView>
+                      <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [camp_request]"></asp:SqlDataSource>
+                     
+            </div>
+        </div</div><br /><br />
+        <div class="container">
+            <div id="Div3" class="row">
+                  <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">BLOOD CAMP</h2>
+                    <hr class="primary">
+                     
+                     
+                      <asp:GridView ID="GridView6" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" align="center" DataSourceID="SqlDataSource6" Width="1011px" Font-Bold="True" Height="86px">
+                          <Columns>
+                              <asp:BoundField DataField="Id" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
+                              <asp:BoundField DataField="date1" HeaderText="DATE" SortExpression="date1" />
+                              <asp:BoundField DataField="venue" HeaderText="VENUE" SortExpression="venue" />
+                              <asp:BoundField DataField="time" HeaderText="TIME" SortExpression="time" />
+                              <asp:BoundField DataField="orga" HeaderText="ORGANISATION" SortExpression="orga" />
+                              <asp:BoundField DataField="address" HeaderText="ADDRESS" SortExpression="address" />
+                              <asp:BoundField DataField="city" HeaderText="CITY" SortExpression="city" />
+                              <asp:BoundField DataField="area" HeaderText="AREA" SortExpression="area" />
+                              <asp:BoundField DataField="contact" HeaderText="CONTACT" SortExpression="contact" />
+                              <asp:BoundField DataField="email" HeaderText="E-MAIL" SortExpression="email" />
+                              <asp:BoundField DataField="person" HeaderText="APPROX. NO OF PERSON" SortExpression="person" />
+                              <asp:BoundField DataField="require" HeaderText="REQUIREMENTS" SortExpression="require" />
+                          </Columns>
+                           <HeaderStyle BackColor="Maroon" ForeColor="#FF6666" />
+                      </asp:GridView>
+                      <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [camp]"></asp:SqlDataSource>
+                     
+                     
+            </div>
+        </div</div>
+            </section>
+            <section id="blood_request" style="background-color:#f2edb4">
+            <div class="container">
+            <div id="Div2" class="row">
+                  <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">BLOOD REQUEST</h2>
+                    <hr class="primary">
+                     
+                      <asp:GridView ID="GridView5" runat="server" AutoGenerateColumns="False"  AllowPaging="true" DataKeyNames="reg_no" ShowHeader="False" align="center" BorderColor="#FF7777" BorderStyle="Solid" OnPageIndexChanging="index_changing" PageSize="1"  >
+                    <Columns>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                               
+                                <table class="auto-style1">
+                                    <tr>
+                                        <td class="auto-style5">REQUEST ID:</td>
+                                        <td class="auto-style4">
+                                            <asp:Label ID="Label2" runat="server" Text='<%# Eval("Id") %>'></asp:Label>
+                                        </td>
+                                        <td class="auto-style7">PATIENT'S NAME:</td>
+                                        <td>
+                                            <asp:Label ID="Label18" runat="server" Text='<%# Eval("name") %>'></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style5">FATHER/HUSBANDS'S NAME:</td>
+                                        <td class="auto-style4">
+                                            <asp:Label ID="Label3" runat="server" Text='<%# Eval("f_h_name") %>'></asp:Label>
+                                        </td>
+                                        <td class="auto-style7">REGISTRATION NUMBER:</td>
+                                        <td>
+                                            <asp:Label ID="Label19" runat="server" Text='<%# Eval("reg_no") %>'></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style5">AGE:</td>
+                                        <td class="auto-style4">
+                                            <asp:Label ID="Label4" runat="server" Text='<%# Eval("admission_date") %>'></asp:Label>
+                                        </td>
+                                        <td class="auto-style7">SEX:</td>
+                                        <td>
+                                            <asp:Label ID="Label20" runat="server" Text='<%# Eval("age") %>'></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style5">ROOM NO.:</td>
+                                        <td class="auto-style4">
+                                            <asp:Label ID="Label5" runat="server" Text='<%# Eval("sex") %>'></asp:Label>
+                                        </td>
+                                        <td class="auto-style7">DOCTOR INCHARGE:</td>
+                                        <td>
+                                            <asp:Label ID="Label21" runat="server" Text='<%# Eval("room_no") %>'></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style5">CLINICAL DIAGNOSIS:</td>
+                                        <td class="auto-style4">
+                                            <asp:Label ID="Label6" runat="server" Text='<%# Eval("doctor_incharge") %>'></asp:Label>
+                                        </td>
+                                        <td class="auto-style7">HB gm%:</td>
+                                        <td>
+                                            <asp:Label ID="Label22" runat="server" Text='<%# Eval("hb") %>'></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style5">PLATELET count/cm:</td>
+                                        <td class="auto-style4">
+                                            <asp:Label ID="Label7" runat="server" Text='<%# Eval("platelet") %>'></asp:Label>
+                                        </td>
+                                        <td class="auto-style7">WBC COUNT:</td>
+                                        <td>
+                                            <asp:Label ID="Label23" runat="server" Text='<%# Eval("wbc") %>'></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style5">ROUTINE OF EMERGENCY:</td>
+                                        <td class="auto-style4">  <asp:Label ID="Label35" runat="server" Text='<%# Eval("routine") %>'></asp:Label></td>
+                                        <td class="auto-style7">REACTION if any: </td>
+                                        <td>
+                                            <asp:Label ID="Label24" runat="server" Text='<%# Eval("reaction") %>'></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style5">HISTORY OF TRANSFUSION (IF YES)<br />ABO GROUP:</td>
+                                        <td class="auto-style4">
+                                            <asp:Label ID="Label8" runat="server" Text='<%# Eval("abo") %>'></asp:Label>
+                                        </td>
+                                        <td class="auto-style7">Rh(D):</td>
+                                        <td>
+                                            <asp:Label ID="Label25" runat="server" Text='<%# Eval("rh") %>'></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style5">HISTORY OF PRAGNANCY(IF PATIENT IS FEMALE):</td>
+                                        <td class="auto-style4">
+                                            <asp:Label ID="Label9" runat="server" Text='<%# Eval("preg") %>'></asp:Label>
+                                        </td>
+                                        <td class="auto-style7">HISTORY OF HDNB,STILLBIRTH,MISCARRIAGE:</td>
+                                        <td>
+                                            <asp:Label ID="Label26" runat="server" Text='<%# Eval("hdnb") %>'></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style5">REQUIREMENTS<br />(UNITS):</td>
+                                        <td class="auto-style4">
+                                            <asp:Label ID="Label10" runat="server" Text='<%# Eval("requirements") %>'></asp:Label>
+                                        </td>
+                                        <td class="auto-style7">WHOLE BLOOD:</td>
+                                        <td>
+                                            <asp:Label ID="Label27" runat="server" Text='<%# Eval("whole_blood") %>'></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style5">RED CELLS:</td>
+                                        <td class="auto-style4">
+                                            <asp:Label ID="Label11" runat="server" Text='<%# Eval("red_cells") %>'></asp:Label>
+                                        </td>
+                                        <td class="auto-style7">FFP:</td>
+                                        <td>
+                                            <asp:Label ID="Label28" runat="server" Text='<%# Eval("ffp") %>'></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style5">CRYOPRECIPITATE:</td>
+                                        <td class="auto-style4">
+                                            <asp:Label ID="Label12" runat="server" Text='<%# Eval("cryoprecipitate") %>'></asp:Label>
+                                        </td>
+                                        <td class="auto-style7">POOR-PLASMA:</td>
+                                        <td>
+                                            <asp:Label ID="Label29" runat="server" Text='<%# Eval("poor_plasma") %>'></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style5">APHERESIS:</td>
+                                        <td class="auto-style4">
+                                            <asp:Label ID="Label13" runat="server" Text='<%# Eval("apheresis") %>'></asp:Label>
+                                        </td>
+                                        <td class="auto-style7">REQUIRED DATE:</td>
+                                        <td>
+                                            <asp:Label ID="Label30" runat="server" Text='<%# Eval("required_on") %>'></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style5">DATE OF INDENT:</td>
+                                        <td class="auto-style4">
+                                            <asp:Label ID="Label14" runat="server" Text='<%# Eval("date_indent") %>'></asp:Label>
+                                        </td>
+                                        <td class="auto-style7">NAME OF INDENTOR:</td>
+                                        <td>
+                                            <asp:Label ID="Label31" runat="server" Text='<%# Eval("indentor") %>'></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style5">HOSPITAL:</td>
+                                        <td class="auto-style4">
+                                            <asp:Label ID="Label15" runat="server" Text='<%# Eval("hospital") %>'></asp:Label>
+                                        </td>
+                                        <td class="auto-style7">AT:</td>
+                                        <td>
+                                            <asp:Label ID="Label32" runat="server" Text='<%# Eval("at") %>'></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style5">TIME:</td>
+                                        <td class="auto-style4">
+                                            <asp:Label ID="Label16" runat="server" Text='<%# Eval("time") %>'></asp:Label>
+                                        </td>
+                                        <td class="auto-style7">DESTINATION:</td>
+                                        <td>
+                                            <asp:Label ID="Label33" runat="server" Text='<%# Eval("destination") %>'></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="auto-style5">E-MAIL:</td>
+                                        <td class="auto-style4">
+                                            <asp:Label ID="Label17" runat="server" Text='<%# Eval("email") %>'></asp:Label>
+                                        </td>
+                                       
+                                    </tr>
+                                  
+                                </table>
+                               
+                            </ItemTemplate>
+                       </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
+            </div>
+        </div></div>
+    </section>
          
-              
+        <section id="doctor_db" style="background-color:#f2edb4">
+            <div class="container">
+            <div id="Div4" class="row">
+                  <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">DOCTOR DATABASE</h2>
+                    <hr class="primary">
+                     
+                     <asp:GridView ID="GridView7" runat="server" AutoGenerateColumns="False"  AllowPaging="true" DataKeyNames="emailid" ShowHeader="False" align="center" BorderColor="#FF7777" BorderStyle="Solid" OnPageIndexChanging="index_changing1" PageSize="1"  >
+                    <Columns>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <table style="border-width: thin; border-color: #FF8A8A; width: 416px; border-bottom-style: solid;">
+                                    <tr>
+                                        <td>
+                                             <asp:Image ID="imgdoctor" ImageUrl='<%# Eval("pic") %>' runat="server" CssClass="img-circle" Height="179px" Width="158px" />
+                                        </td>
+                                        <td>
+                                            <table>
+                                                <tr>
+                                                    <td class="auto-style9">
+                                                        <b>&nbsp;&nbsp;&nbsp; Name: </b>
+                                                    </td>
+                                                    <td class="auto-style2">
+                                                         <b>
+                                                         <asp:Label ID="Lb1" runat="server" Text='<%# Eval("name") %>'></asp:Label>
+                                                         </b>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="auto-style9"><b>&nbsp;&nbsp;&nbsp; Speciality: </b> </td>
+                                                    <td class="auto-style2">
+                                                        <b>
+                                                        <asp:Label ID="Lb2" runat="server" Text='<%# Eval("speciality") %>'></asp:Label>
+                                                        </b>
+                                                    </td>
+                                                    </tr>
+                                                <tr>
+                                                    <td class="auto-style9"><b>&nbsp;&nbsp; Venue: </b> </td>
+                                                    <td class="auto-style2">
+                                                        <b>
+                                                        <asp:Label ID="Lb3" runat="server" Text='<%# Eval("venue") %>'></asp:Label>
+                                                        </b>
+                                                    </td></tr>
+                                                <tr>
+                                                    <td class="auto-style9"><b>&nbsp;&nbsp; City: </b> </td>
+                                                    <td class="auto-style2">
+                                                        <b>
+                                                        <asp:Label ID="Lb4" runat="server" Text='<%# Eval("city") %>'></asp:Label>
+                                                        </b>
+                                                    </td></tr>
+                                                <tr>
+                                                    <td class="auto-style8">&nbsp;&nbsp; Time: </td>
+                                                    <td class="auto-style4">
+                                                        <b>
+                                                        <asp:Label ID="Lb5" runat="server" Text='<%# Eval("time") %>'></asp:Label>
+                                                        </b>
+                                                    </td></tr>
+                                                <tr>
+                                                    <td class="auto-style8">&nbsp;&nbsp; Day: </td>
+                                                    <td class="auto-style4">
+                                                        <b>
+                                                        <asp:Label ID="Lb6" runat="server" Text='<%# Eval("date") %>'></asp:Label>
+                                                        </b>
+                                                    </td></tr>
+                                                <tr>
+                                                    <td class="auto-style9"><b>Languages Known: </b> </td>
+                                                    <td class="auto-style2">
+                                                        <b>
+                                                        <asp:Label ID="Lb7" runat="server" Text='<%# Eval("lang") %>'></asp:Label>
+                                                        </b>
+                                                    </td></tr>
+                                                <tr>
+                                                    <td class="auto-style9"><b>Email Id: </b> </td>
+                                                    <td class="auto-style2">
+                                                        <b>
+                                                        <asp:Label ID="Lb8" runat="server" Text='<%# Eval("emailid") %>'></asp:Label>
+                                                        </b>
+                                                    </td></tr>
+                                                <tr>
+                                                    <td class="auto-style9"><b>Contact Number: </b> </td>
+                                                    <td class="auto-style2">
+                                                        <b>
+                                                        <asp:Label ID="Lb9" runat="server" Text='<%# Eval("contact") %>'></asp:Label>
+                                                        </b>
+                                                    </td></tr>
+                                                <tr>
+                                                    <td class="auto-style9"><b>Experience: </b> </td>
+                                                    <td class="auto-style2">
+                                                        <b>
+                                                        <asp:Label ID="Lb10" runat="server" Text='<%# Eval("experience") %>'></asp:Label>
+                                                        </b>
+                                                    </td></tr>
+                                                <tr>
+                                                    <td class="auto-style9"><b>Gender: </b> </td>
+                                                    <td class="auto-style2">
+                                                        <b>
+                                                        <asp:Label ID="Lb11" runat="server" Text='<%# Eval("gender") %>'></asp:Label>
+                                                        </b>
+                                                    </td></tr>
+                                                <tr>
+                                                    <td class="auto-style9"><b>Qualifications: </b> </td>
+                                                    <td class="auto-style2">
+                                                        <b>
+                                                        <asp:Label ID="Lb12" runat="server" Text='<%# Eval("qualification") %>'></asp:Label>
+                                                        </b>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                       
+                    </Columns>
+                </asp:GridView>
+            </div>
+        </div></div>
+    </section>  
+            <section id="appo_doc" style="background-color:#f2edb4">
+            <div class="container">
+            <div id="Div5" class="row">
+                  <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">APPOINTMENTS WITH DOCTOR</h2>
+                    <hr class="primary">
+                     
+                    
+                      <asp:GridView ID="GridView8" runat="server" AutoGenerateColumns="False" DataKeyNames="P_name,emailid" DataSourceID="SqlDataSource7" align="center" Font-Bold="True">
+                          <Columns>
+                              <asp:BoundField DataField="Id" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
+                              <asp:BoundField DataField="P_name" HeaderText="PAITENT" ReadOnly="True" SortExpression="P_name" />
+                              <asp:BoundField DataField="D_name" HeaderText="DOCTOR" SortExpression="D_name" />
+                              <asp:BoundField DataField="P_address" HeaderText="ADDRESS" SortExpression="P_address" />
+                              <asp:BoundField DataField="P_city" HeaderText="CITY" SortExpression="P_city" />
+                              <asp:BoundField DataField="P_country" HeaderText="COUNTRY" SortExpression="P_country" />
+                              <asp:BoundField DataField="P_gender" HeaderText="P_gender" SortExpression="P_gender" Visible="false" />
+                              <asp:BoundField DataField="P_email" HeaderText="E-MAIL" SortExpression="P_email" />
+                              <asp:BoundField DataField="P_contact" HeaderText="CONTACT" SortExpression="P_contact" />
+                              <asp:BoundField DataField="D_speciality" HeaderText="SPECIALITY" SortExpression="D_speciality" />
+                              <asp:BoundField DataField="D_venue" HeaderText="VENUE" SortExpression="D_venue" />
+                              <asp:BoundField DataField="time" HeaderText="TIME" SortExpression="time" />
+                              <asp:BoundField DataField="gender" HeaderText="gender" SortExpression="gender" Visible="false" />
+                              <asp:BoundField DataField="day" HeaderText="DATE" SortExpression="day" />
+                              <asp:BoundField DataField="emailid" HeaderText="E-MAIL" ReadOnly="True" SortExpression="emailid" />
+                              <asp:BoundField DataField="contact" HeaderText="CONTACT" SortExpression="contact" />
+                              <asp:BoundField DataField="fees" HeaderText="FEES" SortExpression="fees" />
+                              <asp:CommandField ShowDeleteButton="True" />
+                          </Columns>
+                          <HeaderStyle BackColor="#CCCCFF" Font-Bold="True" />
+                      </asp:GridView>
+                      <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [Paitent] WHERE [P_name] = @P_name AND [emailid] = @emailid" InsertCommand="INSERT INTO [Paitent] ([P_name], [D_name], [P_address], [P_city], [P_country], [P_gender], [P_email], [P_contact], [D_speciality], [D_venue], [time], [gender], [day], [emailid], [contact], [fees]) VALUES (@P_name, @D_name, @P_address, @P_city, @P_country, @P_gender, @P_email, @P_contact, @D_speciality, @D_venue, @time, @gender, @day, @emailid, @contact, @fees)" SelectCommand="SELECT * FROM [Paitent]" UpdateCommand="UPDATE [Paitent] SET [Id] = @Id, [D_name] = @D_name, [P_address] = @P_address, [P_city] = @P_city, [P_country] = @P_country, [P_gender] = @P_gender, [P_email] = @P_email, [P_contact] = @P_contact, [D_speciality] = @D_speciality, [D_venue] = @D_venue, [time] = @time, [gender] = @gender, [day] = @day, [contact] = @contact, [fees] = @fees WHERE [P_name] = @P_name AND [emailid] = @emailid">
+                          <DeleteParameters>
+                              <asp:Parameter Name="P_name" Type="String" />
+                              <asp:Parameter Name="emailid" Type="String" />
+                          </DeleteParameters>
+                          <InsertParameters>
+                              <asp:Parameter Name="P_name" Type="String" />
+                              <asp:Parameter Name="D_name" Type="String" />
+                              <asp:Parameter Name="P_address" Type="String" />
+                              <asp:Parameter Name="P_city" Type="String" />
+                              <asp:Parameter Name="P_country" Type="String" />
+                              <asp:Parameter Name="P_gender" Type="String" />
+                              <asp:Parameter Name="P_email" Type="String" />
+                              <asp:Parameter Name="P_contact" Type="String" />
+                              <asp:Parameter Name="D_speciality" Type="String" />
+                              <asp:Parameter Name="D_venue" Type="String" />
+                              <asp:Parameter Name="time" Type="String" />
+                              <asp:Parameter Name="gender" Type="String" />
+                              <asp:Parameter Name="day" Type="String" />
+                              <asp:Parameter Name="emailid" Type="String" />
+                              <asp:Parameter Name="contact" Type="String" />
+                              <asp:Parameter Name="fees" Type="String" />
+                          </InsertParameters>
+                          <UpdateParameters>
+                              <asp:Parameter Name="Id" Type="Int32" />
+                              <asp:Parameter Name="D_name" Type="String" />
+                              <asp:Parameter Name="P_address" Type="String" />
+                              <asp:Parameter Name="P_city" Type="String" />
+                              <asp:Parameter Name="P_country" Type="String" />
+                              <asp:Parameter Name="P_gender" Type="String" />
+                              <asp:Parameter Name="P_email" Type="String" />
+                              <asp:Parameter Name="P_contact" Type="String" />
+                              <asp:Parameter Name="D_speciality" Type="String" />
+                              <asp:Parameter Name="D_venue" Type="String" />
+                              <asp:Parameter Name="time" Type="String" />
+                              <asp:Parameter Name="gender" Type="String" />
+                              <asp:Parameter Name="day" Type="String" />
+                              <asp:Parameter Name="contact" Type="String" />
+                              <asp:Parameter Name="fees" Type="String" />
+                              <asp:Parameter Name="P_name" Type="String" />
+                              <asp:Parameter Name="emailid" Type="String" />
+                          </UpdateParameters>
+                      </asp:SqlDataSource>
+                     
+                    
+            </div>
+        </div></div>
+    </section>    
 </form>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>

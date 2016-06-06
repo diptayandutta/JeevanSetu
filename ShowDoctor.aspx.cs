@@ -10,13 +10,25 @@ public partial class ShowDoctor : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+
+        if (!IsPostBack)
+        {
+            loadgrid();
+        }
+    }
+
+    protected void loadgrid()
+    {
         DataSet ds = hospital.FetchData("select name,time,venue,experience,gender,city,speciality,lang,date,qualification,emailid,pic,contact from Doctor where city='" + Session["city"].ToString() + "' and speciality='" + Session["speciality"].ToString() + "'");
-        
+
         GridView1.DataSource = ds;
         GridView1.DataBind();
     }
-    
-      
+    protected void index_changing(object sender, GridViewPageEventArgs e)
+    {
+        GridView1.PageIndex = e.NewPageIndex;
+        loadgrid();
+    }
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
         Session["name"] = ((Label)GridView1.SelectedRow.FindControl("Lb1")).Text;

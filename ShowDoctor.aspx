@@ -74,7 +74,7 @@
                     <hr class="primary">
                 </div>
           
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"  DataKeyNames="emailid" ShowHeader="False" align="center" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" BorderColor="#FF7777" BorderStyle="Solid"  >
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"  AllowPaging="true" DataKeyNames="emailid" ShowHeader="False" align="center" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" BorderColor="#FF7777" BorderStyle="Solid" OnPageIndexChanging="index_changing" PageSize="1"  >
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>

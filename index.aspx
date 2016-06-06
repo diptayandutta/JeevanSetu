@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head id="Head1" runat="server">
      <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -265,7 +265,7 @@
     
             
         <section id="login" class="auto-style2" style="background-image:url(../img/images.jpg); height:700px">
- &nbsp;&nbsp;<a href="User_home.aspx" style="font-size: large; color:#fff; font-weight: bold;"> Login As Exisitng User</a>
+ &nbsp;&nbsp;<a href="#usermodal" data-toggle="modal" style="font-size: large; color:#fff; font-weight: bold;"> Login As Exisitng User</a>
             <table align="center">
                 <tr>
                     <td class="auto-style3">
@@ -374,7 +374,7 @@ Contact: 123-456-7890
 	   <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body" class="row" style="background-color:floralwhite" >
-           <em> <b>Please Register Here</b></em></br>
+         
             <asp:TextBox ID="TextBox3" runat="server" Placeholder="Enter Your name:" CssClass="textdetails"></asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="TextBox4" runat="server" CssClass="textdetails" Placeholder="Enter Your Time"></asp:TextBox><br /><br/>
             <asp:DropDownList ID="TextBox5" runat="server" CssClass="textdetails">
                  <asp:ListItem>Enter Venue</asp:ListItem>
@@ -448,6 +448,28 @@ Contact: 123-456-7890
             <br />
             <asp:FileUpload ID="FileUpload1" runat="server" class="btn btn-primary" />
             <center><asp:Button ID="Button2" runat="server" class="btn btn-primary" Text="Register" OnClick="Button2_Click" /></center></br></br>
+</div>  
+
+        </div>
+           
+          
+     </div>
+  </div>
+            <div class="modal fade" id="usermodal" role="dialog">
+    <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header">
+	   <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body" class="row" style="background-color:floralwhite" >
+          
+        &nbsp;&nbsp;&nbsp;&nbsp;  <b>E-Mail</b>
+            <asp:TextBox ID="TextBox33" runat="server"  CssClass="textdetails"></asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;</br></br>
+           <b> Password:</b>
+            <asp:TextBox ID="TextBox34" runat="server" CssClass="textdetails" TextMode="Password"></asp:TextBox><br /></br>
+           
+          
+            <center><asp:Button ID="Button6" runat="server" class="btn btn-primary" Text="Login" OnClick="user_login" /></center></br></br>
 </div>  
 
         </div>

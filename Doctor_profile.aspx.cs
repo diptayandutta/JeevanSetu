@@ -132,4 +132,12 @@ public partial class Doctor_profile : System.Web.UI.Page
     {
         Response.Redirect("Doctor_profile.aspx");
     }
+    protected void change(object sender, EventArgs e)
+    {
+        FileUpload1.PostedFile.SaveAs(Server.MapPath("~/pics/") + FileUpload1.FileName.ToString());
+        string bpath = "~/pics/" + FileUpload1.FileName.ToString();
+        bool r = hospital.SaveData("Update Doctor set pic='" +bpath+ "' where emailid='" + Session["doc_id"].ToString() + "'");
+       
+
+    }
 }

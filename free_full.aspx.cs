@@ -108,5 +108,24 @@ public partial class free_full : System.Web.UI.Page
 
         // Response.Write(Session["room_no"].ToString());*/
          }
+    protected void add_more(object sender, EventArgs e)
+    {
+    }
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        bool r = hospital.SaveData("insert into free values('" + drop1.Text + "','" + drop2.Text + "','" + TextBox7.Text + "','" + TextBox8.Text + "','"+TextBox1.Text+"')");
+        if (r)
+        {
+            Response.Write("<script>confirm('A new Free Room has been inserted.Please Refresh the Page.')</script>");
+        }
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        drop1.Text = null;
+        drop2.Text = null;
+        TextBox7.Text = null;
+        TextBox1.Text = null;
+        TextBox8.Text = null;
+    }
 
 }

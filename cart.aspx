@@ -145,7 +145,7 @@
                         
                         <asp:BoundField DataField="date1" HeaderText="date1" ReadOnly="True" SortExpression="date1" Visible="false" />
                         <asp:BoundField DataField="Customer_Id" HeaderText="Customer_Id" ReadOnly="True" SortExpression="Customer_Id" Visible="false" />
-                        <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                        <asp:CommandField ShowDeleteButton="True" />
                         
                     </Columns>
                     <HeaderStyle BackColor="#FFCC00" BorderColor="#FFCC00" BorderStyle="None" />

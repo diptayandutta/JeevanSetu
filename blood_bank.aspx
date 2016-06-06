@@ -169,7 +169,7 @@ The equipment for blood testing, separation and storage is extremely expensive, 
         </div>
         <div class="container">
             <div class="row">
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource1" align="center" BackColor="White" Height="141px" Width="404px">
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource1" align="center" BackColor="White" Height="47px" Width="469px">
                     <Columns>
                         <asp:BoundField DataField="Id" HeaderText="S. NO" InsertVisible="False" ReadOnly="True" SortExpression="Id" HeaderStyle-BackColor="#ff9933" />
                         <asp:BoundField DataField="date1" HeaderText="DATE" SortExpression="date1" HeaderStyle-BackColor="#ff9933"/>

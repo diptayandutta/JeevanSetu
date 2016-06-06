@@ -27,11 +27,7 @@ public partial class Reg_blood : System.Web.UI.Page
             {
                 Response.Write("<script>Confirm('You are already an existing donator')</script>");
             }
-            else
-            {
-                Session["donaotor_email"] = TextBox5.Text;
-                Response.Redirect("Donator_registered.aspx");
-            }
+          
         }
     }
 }

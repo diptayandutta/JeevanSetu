@@ -108,7 +108,15 @@
                 <table align="center" class="nav-justified" align="center" style="border: thin solid #FF2828" >
                     <tr>
                         <td class="auto-style1" rowspan="13">
-                            <asp:Image ID="Image1" runat="server" Height="213px" Width="186px" CssClass="img-circle" />
+                            <asp:Image ID="Image1" runat="server" Height="213px" Width="186px" CssClass="img-circle" /> 
+                       <br /><br />
+                            <a id="btn1" data-toggle="collapse" href="#div4" class="btn btn-primary" >Change Picture</a>
+                                <br /><br />
+                             <div id="div4" class="collapse">
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                     <asp:FileUpload ID="FileUpload1" runat="server" />
+                                 <asp:Button ID="Button4" runat="server" Text="CHANGE" OnClick="change" class="btn btn-primary" />
+                             </div>
                         </td>
                         <td class="text-left">
                             <b>NAME-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; DR.

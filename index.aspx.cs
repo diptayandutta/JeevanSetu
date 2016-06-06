@@ -84,4 +84,13 @@ public partial class index : System.Web.UI.Page
 
 
     }
+   protected void user_login(object sender, EventArgs e)
+    {
+        DataSet ds = hospital.FetchData("select *from Register where email='" + TextBox33.Text + "' and password='" + TextBox34.Text + "'");
+        if (ds.Tables[0].Rows.Count == 1)
+        {
+            Session["user_email"] = TextBox33.Text;
+            Response.Redirect("User_home.aspx");
+        }
+    }
 }

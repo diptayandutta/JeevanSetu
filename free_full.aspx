@@ -41,7 +41,7 @@
     
 
    
-<section id="free_full" style="background-color:floralwhite; height:700px ">
+<section id="free_full" style="background-color:floralwhite ">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -60,7 +60,9 @@
                         </Columns>
                     </asp:GridView>
                      <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [free]"></asp:SqlDataSource>
-                     </div>
+                    <br /><br /> <button type="button" data-toggle="modal" data-target="#modal1" class="btn btn-primary" onclick="add_more" >ADD MORE</button></br></br> 
+                   
+                </div>
                  <div class="col-lg-12 text-center"><br /><br />
                     <h2 class="section-heading">ALL FULL ROOMS</h2>
                     <hr class="primary">
@@ -69,7 +71,7 @@
                     </em></strong></span>
                     <br />
                    
-                     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" align="center" OnRowDataBound="Row_Bound" DataKeyNames="hospital_name,room_no" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Height="72px" Width="728px">
+                     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" align="center" OnRowDataBound="Row_Bound" DataKeyNames="hospital_name,room_no" AllowPaging="true" PageSize="10" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Height="72px" Width="728px">
                          <Columns>
                              <asp:BoundField DataField="hospital_name" HeaderText="HOSPITAL NAME" ReadOnly="True" SortExpression="hospital_name" />
                              <asp:BoundField DataField="pro_name" HeaderText="PROCEDURE" SortExpression="pro_name" />
@@ -102,14 +104,68 @@
                      </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                
-
-            </div>
-        </div>
+       
     </section>
-    
+    <div class="modal fade" id="modal1" role="dialog">
+    <div class="modal-dialog">
+     <div class="modal-content">
+        <div class="modal-header">
+	   <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body" class="row" style="background-color:floralwhite" >
+
+            <b>CHOOSE HOSPITAL:</b>
+            <asp:DropDownList ID="drop1" runat="server" CssClass="textdetails">
+                 <asp:ListItem>Enter Venue</asp:ListItem>
+                <asp:ListItem>AMRI HOSPITAL KOLKATA</asp:ListItem>
+                <asp:ListItem>APOLLO HOSPITAL KOLKATA</asp:ListItem>
+                <asp:ListItem>FORTIS HOSPITAL KOLKATA</asp:ListItem>
+                <asp:ListItem>RUBY HOSPITAL KOLKATA</asp:ListItem>
+                <asp:ListItem>DESUN HOSPITAL KOLKATA</asp:ListItem>
+                <asp:ListItem>PEERLESS HOSPITAL KOLKATA</asp:ListItem>
+                <asp:ListItem>TATA CANCER HOSPITAL KOLKATA</asp:ListItem>
+                <asp:ListItem>MEDICA HOSPITAL KOLKATA</asp:ListItem>
+                </asp:DropDownList><br /><br />
+            <b> CHOOSE PROCEDURE:</b>
+           <asp:DropDownList id="drop2" runat="server">
+                 <asp:ListItem>Aesthetic & Reconstruction Department</asp:ListItem>
+            <asp:ListItem>Bone Marrow Transplanation</asp:ListItem>
+            <asp:ListItem>Cardiology</asp:ListItem>
+            <asp:ListItem>Cardiac Department</asp:ListItem>
+                <asp:ListItem>Nephrology</asp:ListItem>
+                <asp:ListItem>Nurosurgery</asp:ListItem>
+                <asp:ListItem>Radio Oncology</asp:ListItem>
+                <asp:ListItem>Spine Surgery</asp:ListItem>
+                <asp:ListItem>Urology</asp:ListItem>
+                </asp:DropDownList> 
+          <br />
+          <br />
+          <b>  ENTER AVAILABLE ROOM NUMBER:</b>
+            <asp:TextBox ID="TextBox7" runat="server" CssClass="textdetails"></asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;</br><br />
+            <b>CHOOSE ROOME TYPE:</b>
+            <asp:DropDownList ID="TextBox8" runat="server" CssClass="textdetails">
+                  <asp:ListItem>General Bed</asp:ListItem>
+                 <asp:ListItem>Semi-Private Room</asp:ListItem>
+                 <asp:ListItem>Private Room</asp:ListItem>
+                 <asp:ListItem>Deluxe</asp:ListItem>
+                 <asp:ListItem>Super Deluxe</asp:ListItem>
+                
+                <asp:ListItem>Suite</asp:ListItem>
+                <asp:ListItem>Maharaja Suite</asp:ListItem>
+            </asp:DropDownList>&nbsp;&nbsp;&nbsp;&nbsp;
+           <br /><br />
+              <b>  COST/DAY:</b>
+            <asp:TextBox ID="TextBox1" runat="server" CssClass="textdetails"></asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;</br><br />
+            <center><asp:Button ID="Button2" runat="server" class="btn btn-primary" Text="Register" OnClick="Button2_Click" />
+                <asp:Button ID="Button1" runat="server" Text="Reset" class="btn btn-primary" OnClick="Button1_Click"></asp:Button>
+            </center></br></br>
+</div>  
+
+        </div>
+           
+          
+     </div>
+  </div>
          
               
 </form>

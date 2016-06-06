@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="BookingDetails.aspx.cs" Inherits="BookingDetails" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="camp.aspx.cs" Inherits="camp" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -10,8 +11,8 @@
     <meta name="author" content="">
 
     <title>
-       JEEVAN SETU</title>
-     <link rel="shortcut icon" href="~/img/logo.png" type="image/png">
+       ADMIN</title>
+     <link rel="shortcut icon" href="~/img/customers.png" type="image/png">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
@@ -51,41 +52,11 @@
          
         }
      </style>
-     <script>
-         window.history.forward()
-         function noback() {
-             window.history.forward();
-         }
-    </script>
+   
      </head>
 <body id="page-top" style="background-color:floralwhite" >
     
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top"><em><img src="../img/logo.png" class="icon" style="height:30px" /></em></a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                   
-                    <li>
-                        <a href="ShowDoctor.aspx" class="page-scroll" style="color:#f00">Logout</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
+    
     
 <form id="form1" runat="server">
    
@@ -93,7 +64,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <br /><br /><br />
-                    <h2 class="service-box">Select A Date For Appoinment</h2>
+                    <h2 class="service-box">Select A Date</h2>
                     <hr class="primary">
                 </div>
          
@@ -101,43 +72,43 @@
               
                 <table align="center" style="border: medium solid #FF6262; background-color: #FFD5D5; height: 530px; width: 464px;">
                     <tr>
-                        <td class="auto-style2">Paitent&#39;s Name</td>
+                        <td class="auto-style2">ORGANISATION</td>
                         <td class="auto-style3">
                             <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style2">Doctor&#39;s Name</td>
+                        <td class="auto-style2">ADDRESS</td>
                         <td class="auto-style3">
                             <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style2">Speciality</td>
+                        <td class="auto-style2">CITY</td>
                         <td class="auto-style3">
                             <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style2">Fees</td>
+                        <td class="auto-style2">VENUE</td>
                         <td class="auto-style3">
                             <asp:Label ID="Label9" runat="server" Text="Label"></asp:Label>
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style2">Venue</td>
+                        <td class="auto-style2">CONTACT</td>
                         <td class="auto-style3">
                             <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style2">City</td>
+                        <td class="auto-style2">E-MAIL</td>
                         <td class="auto-style3">
                             <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style2">Time</td>
+                        <td class="auto-style2">APPROX. NO. OF PERSON</td>
                         <td class="auto-style3">
                             <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
                         </td>
@@ -145,28 +116,25 @@
                     <tr>
                         <td class="auto-style2">Date</td>
                         <td class="auto-style3">
-                            <asp:TextBox ID="TextBox1" runat="server" CssClass="textdetails" Height="24px" Width="120px"></asp:TextBox>
+                            <asp:DropDownList ID="DropDownList1" runat="server" Height="29px" Width="148px">
+                            </asp:DropDownList>
 &nbsp;
-                            <asp:ImageButton ID="ImageButton1" runat="server" Height="17px" Width="24px" OnClick="ImageButton1_Click" ImageUrl="~/img/calendar_new (1).png" />
-                            <asp:Calendar ID="Calendar1" runat="server" Height="183px" OnSelectionChanged="Calendar1_SelectionChanged" OnDayRender="Calendar1_DayRender1" Visible="False" Width="220px" BackColor="#FFFFCC" BorderColor="#FFCC66" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#663399" BorderWidth="1px" ShowGridLines="True" >
-                                <DayHeaderStyle BackColor="#FFCC66" Font-Bold="True" Height="1px" />
-                                <NextPrevStyle Font-Size="9pt" ForeColor="#FFFFCC" />
-                                <OtherMonthDayStyle ForeColor="#CC9966" />
-                                <SelectedDayStyle BackColor="#CCCCFF" Font-Bold="True" />
-                                <SelectorStyle BackColor="#FFCC66" />
-                                <TitleStyle BackColor="#990000" Font-Bold="True" Font-Size="9pt" ForeColor="#FFFFCC" />
-                                <TodayDayStyle BackColor="#FFCC66" ForeColor="White" />
-                            </asp:Calendar>
+                            </td>
+                    </tr>
+                      <tr>
+                        <td class="auto-style2">TIME</td>
+                        <td class="auto-style3">
+                            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style2">Contact Number</td>
+                        <td class="auto-style2">CAMP ADDRESS</td>
                         <td class="auto-style3">
                             <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style2">E-Mail Id</td>
+                        <td class="auto-style2">REQUIREMENTS</td>
                         <td class="auto-style3">
                             <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label>
                         </td>
@@ -174,7 +142,7 @@
                     <tr>
                         <td class="auto-style1" colspan="2">
                             <br />
-                            <asp:Button ID="Button1" runat="server" Text="Book Apponiment" class="btn btn-primary" OnClick="Button1_Click" />
+                            <asp:Button ID="Button1" runat="server" Text="Set Camp" class="btn btn-primary" OnClick="Button1_Click" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <asp:Button ID="Button2" runat="server" Text="Back" class="btn btn-primary" OnClick="Button2_Click" />
                         </td>
@@ -202,4 +170,3 @@
     </form>
 </body>
 </html>
-

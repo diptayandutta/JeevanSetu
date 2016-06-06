@@ -63,9 +63,15 @@
             <asp:Label ID="Label4" runat="server"></asp:Label><br /><br/>
             &nbsp;
             <asp:Label ID="Label5" runat="server" Text="Room Preference" style="font-weight: 700; font-size: large; color: #FF5151"></asp:Label>&nbsp;
-            <asp:DropDownList ID="DropDownList1" runat="server" CssClass="textdetails"><asp:ListItem>Maharaja Suite</asp:ListItem>
+            <asp:DropDownList ID="DropDownList1" runat="server" CssClass="textdetails">
+                 <asp:ListItem>General Bed</asp:ListItem>
+                 <asp:ListItem>Semi-Private Room</asp:ListItem>
+                 <asp:ListItem>Private Room</asp:ListItem>
+                 <asp:ListItem>Deluxe</asp:ListItem>
+                 <asp:ListItem>Super Deluxe</asp:ListItem>
+                
                 <asp:ListItem>Suite</asp:ListItem>
-                <asp:ListItem>General Bed</asp:ListItem>
+                <asp:ListItem>Maharaja Suite</asp:ListItem>
                 </asp:DropDownList>&nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label6" runat="server" Text="Preferred Date" style="font-weight: 700; font-size: large; color: #FF5151"></asp:Label>&nbsp;
            <asp:DropDownList ID="TextBox6" runat="server" CssClass="textdetails" >

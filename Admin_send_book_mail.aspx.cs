@@ -65,4 +65,8 @@ public partial class Admin_send_book_mail : System.Web.UI.Page
         }
         
     }
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Admin_home.aspx");
+    }
 }

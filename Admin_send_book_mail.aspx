@@ -192,7 +192,7 @@
                             <br />
                             <asp:Button ID="Button1" runat="server" Text="Send E-Mail" class="btn btn-primary" OnClick="Button1_Click" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <asp:Button ID="Button2" runat="server" Text="Back" class="btn btn-primary"/>
+                            <asp:Button ID="Button2" runat="server" Text="Back" class="btn btn-primary" OnClick="Button2_Click"/>
                         </td>
                     </tr>
                 </table>
